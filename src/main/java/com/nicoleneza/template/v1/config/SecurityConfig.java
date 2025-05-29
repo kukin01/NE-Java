@@ -43,6 +43,7 @@ public class SecurityConfig {
                         req.requestMatchers(
                                         "/auth/**",
                                         "/auth/admin/register",
+                                        "/auth/manager/register/",
                                         "/v2/api-docs",
                                         "/v3/api-docs",
                                         "/v3/api-docs/**",

@@ -20,9 +20,9 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("employees")
 @RequiredArgsConstructor
-@Tag(name = "User")
+@Tag(name = "Employee")
 public class UserController {
 
     @Qualifier("IUserService")
@@ -50,14 +50,14 @@ public class UserController {
     public ResponseEntity<ApiResponse<UserResponseDTO>> getUserById(@PathVariable UUID userId) {
         try {
             UserResponseDTO user = userService.getUserById(userId);
-            return ApiResponse.success("User retrieved successfully", HttpStatus.OK, user);
+            return ApiResponse.success("Employee retrieved successfully", HttpStatus.OK, user);
         } catch (Exception e) {
             ExceptionUtils.handleResponseException(e);
-            return ApiResponse.fail("Failed to retrieve user", HttpStatus.BAD_REQUEST, e.getMessage());
+            return ApiResponse.fail("Failed to retrieve Employee", HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 
-    @PutMapping("/{userId}")
+    @PutMapping("/{empId}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<UserResponseDTO>> updateUser(
             @PathVariable UUID userId,
@@ -65,14 +65,14 @@ public class UserController {
     ) {
         try {
             UserResponseDTO updatedUser = userService.updateUser(userId, updateUserDTO);
-            return ApiResponse.success("User updated successfully", HttpStatus.OK, updatedUser);
+            return ApiResponse.success("Employee updated successfully", HttpStatus.OK, updatedUser);
         } catch (Exception e) {
             ExceptionUtils.handleResponseException(e);
             return ApiResponse.fail("Failed to update user", HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 
-    @PostMapping("/{userId}/roles/add")
+    @PostMapping("/{empId}/roles/add")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UserResponseDTO> addRoles(
             @PathVariable UUID userId,
