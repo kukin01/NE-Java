@@ -7,7 +7,6 @@ import com.nicoleneza.template.v1.exceptions.BadRequestException;
 import com.nicoleneza.template.v1.models.Employee;
 import com.nicoleneza.template.v1.models.Role;
 import com.nicoleneza.template.v1.repositories.EmployeeRepository;
-import com.nicoleneza.template.v1.services.EmployeeService;
 import com.nicoleneza.template.v1.services.IRoleService;
 import com.nicoleneza.template.v1.utils.helpers.EmployeeHelper;
 import lombok.Data;
@@ -20,12 +19,11 @@ import java.util.List;
 @Data
 @Service
 @RequiredArgsConstructor
-public class EmployeeServiceImpl implements EmployeeService {
+public class EmployeeServiceImpl {
     public final EmployeeRepository employeeRepository;
     public final IRoleService roleService;
     public final EmployeeHelper employeeHelper;
     public final PasswordEncoder passwordEncoder;
-    private final EmployeeService employeeService;
 
     public UserResponseDTO createOwner(RegisterUserDTO dto) {
         if (employeeRepository.existsByEmail(dto.getEmail())) {
