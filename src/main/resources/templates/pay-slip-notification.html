@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payslip Notification</title>
+</head>
+<body>
+<p>Hello Admin,</p>
+
+<p>The following payslip has been generated and approved:</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Employee ID</th>
+        <td th:text="${empId}">[empId]</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td th:text="${name}">[name]</td>
+    </tr>
+    <tr>
+        <th>Month</th>
+        <td th:text="${month}">[month]</td>
+    </tr>
+    <tr>
+        <th>Year</th>
+        <td th:text="${year}">[year]</td>
+    </tr>
+    <tr>
+        <th>Gross Salary</th>
+        <td th:text="${grossSalary}">[grossSalary]</td>
+    </tr>
+    <tr>
+        <th>Taxed Amount</th>
+        <td th:text="${taxedAmount}">[taxedAmount]</td>
+    </tr>
+    <tr>
+        <th>House Allowance</th>
+        <td th:text="${houseAllowance}">[houseAllowance]</td>
+    </tr>
+    <tr>
+        <th>Transport Allowance</th>
+        <td th:text="${transportAllowance}">[transportAllowance]</td>
+    </tr>
+    <tr>
+        <th>Total Deductions</th>
+        <td th:text="${totalDeductions}">[totalDeductions]</td>
+    </tr>
+    <tr>
+        <th>Net Salary</th>
+        <td th:text="${netSalary}">[netSalary]</td>
+    </tr>
+</table>
+
+<p>Best regards,</p>
+<p>HR System</p>
+</body>
+</html>
